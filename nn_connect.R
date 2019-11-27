@@ -1,10 +1,10 @@
-nn_connect <- function(input, output_size = 10, std= 1.0 ,with_bias=T,weight = NULL){
- #input <-as.matrix(p_z, ncol = z_dim)
+nn_connect <- function(input, output_size = 32, std= 1.0 ,with_bias=T,weight = NULL){
+ # input <-matrix(p_z,ncol = z_dim)
  # output_size = 10
 
  if(is.null(weight)){
    weight <- rnorm( dim(input)[2] * output_size , sd = std)
-   weight <- matrix(weight, nrow = dim(input)[2])
+   weight <- matrix(weight, nrow = dim(input)[2],byrow=T)
  }
  
  output <- input %*% weight
